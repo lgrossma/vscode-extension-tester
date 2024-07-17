@@ -20,7 +20,7 @@ import { By, ChromiumWebDriver, Key, until, WebElement } from 'selenium-webdrive
 import { fileURLToPath } from 'url';
 import { StatusBar } from '../statusBar/StatusBar';
 import { Editor } from './Editor';
-import { ElementWithContexMenu } from '../ElementWithContextMenu';
+import { ElementWithContextMenu } from '../ElementWithContextMenu';
 import { AbstractElement } from '../AbstractElement';
 import { Breakpoint } from './Breakpoint';
 
@@ -544,7 +544,7 @@ export class TextEditor extends Editor {
 /**
  * Text selection block
  */
-class Selection extends ElementWithContexMenu {
+class Selection extends ElementWithContextMenu {
 	constructor(el: WebElement, editor: TextEditor) {
 		super(el, editor);
 	}

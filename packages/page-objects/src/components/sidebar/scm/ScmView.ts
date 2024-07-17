@@ -19,7 +19,7 @@ import { SideBarView } from '../SideBarView';
 import { WebElement, Key, By, ChromiumWebDriver } from 'selenium-webdriver';
 import { AbstractElement } from '../../AbstractElement';
 import { ContextMenu } from '../../..';
-import { ElementWithContexMenu } from '../../ElementWithContextMenu';
+import { ElementWithContextMenu } from '../../ElementWithContextMenu';
 
 /**
  * Page object representing the Source Control view
@@ -187,7 +187,7 @@ export class ScmProvider extends AbstractElement {
 /**
  * Page object representing a SCM change tree item
  */
-export class ScmChange extends ElementWithContexMenu {
+export class ScmChange extends ElementWithContextMenu {
 	constructor(row: WebElement, provider: ScmProvider) {
 		super(row, provider);
 	}
@@ -269,7 +269,7 @@ export class ScmChange extends ElementWithContexMenu {
 	}
 }
 
-export class MoreAction extends ElementWithContexMenu {
+export class MoreAction extends ElementWithContextMenu {
 	constructor(scm: ScmProvider | ScmView) {
 		super(MoreAction.locators.ScmView.more, scm);
 	}
@@ -298,7 +298,7 @@ export class MoreAction extends ElementWithContexMenu {
 			}
 		} else if (chromiumVersion && parseInt(chromiumVersion.split('.')[0]) >= 100) {
 			await this.click();
-			const workbench = await this.getDriver().findElement(ElementWithContexMenu.locators.Workbench.constructor);
+			const workbench = await this.getDriver().findElement(ElementWithContextMenu.locators.Workbench.constructor);
 			return new ContextMenu(workbench).wait();
 		}
 		return await super.openContextMenu();
